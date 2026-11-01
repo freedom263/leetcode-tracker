@@ -28,12 +28,13 @@ class StatsAnalyzer:
         total = progress.get("totalSubmissions", 0)
         ac = progress.get("acSubmissions", 0)
 
+        pass_rate = f"{(ac / total * 100):.1f}%" if total > 0 else "0.0%"
         info_text = f"""
 用户名: {username}
 全站排名: {ranking}
 总提交数: {total}
 通过提交数: {ac}
-通过率: {(ac/total*100):.1f}% (如果有提交)
+通过率: {pass_rate}
         """.strip()
 
         self.console.print(Panel(info_text, title="[bold blue]用户信息[/bold blue]"))
